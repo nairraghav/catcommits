@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cat Commits</title>
+	</head>
+	<body>
+		{%for commit in commits%}
+    		<li>
+				<a href="{{commit.url}}">
+					<img src="{{ commit.author_image_url }}">
+					<span>{{ commit.message }}</span>
+				</a>
+			</li>
+		{%endfor%}
+	</body>
+</html>
