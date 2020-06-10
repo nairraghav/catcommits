@@ -1,6 +1,6 @@
 import requests
 import requests_cache
-from app.cat_commit import CatCommit
+from commits.models.cat_commit import CatCommit
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
