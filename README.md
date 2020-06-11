@@ -7,6 +7,8 @@ cloning the repo, update the `commits/app.py` to remove `cat` and replace it wit
 The only other changes you would need to make are for the background image within the `commits/templates/home.html`
 file
 
+Do note that we are using GitHub's API (non authenticated) so we are limited to 10 requests per minute.
+
 
 ## Website
 This is hosted [here](http://cat-commits.raghav-nair.com) via Heroku & Google Domains

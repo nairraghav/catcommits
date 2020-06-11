@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-requests_cache.install_cache('github_cache', backend='sqlite', expire_after=180)
+requests_cache.install_cache('github_cache', backend='sqlite', expire_after=10800)
 
 
 @app.route('/', methods=["GET"])
@@ -16,7 +16,7 @@ def home():
         headers = {"Accept": "application/vnd.github.cloak-preview"}
         cat_search_response = requests.get(url=github_cat_search_url, headers=headers)
         cat_commits = []
-        for item in cat_search_response.json()['items']:
+        for item in cat_search_response.json().get('items'):
             cat_commits.append(CatCommit(item))
         return render_template('home.html', commits=cat_commits, page_number=page_number)
     else:
