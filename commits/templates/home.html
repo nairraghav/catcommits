@@ -74,17 +74,19 @@
 			</ul>
 		</main>
 
+		{% if not no_kitties %}
 		<nav class="navbar navbar-light">
-			<form method="GET" action="{{ url_for('home') }}">
-            	{% if page_number > 1%}
+			{% if page_number > 0 %}
+				<form method="GET" action="{{ url_for('home') }}">
 					<button name="page_number" value={{page_number - 1}} type="submit" style="align:left">Previous Page</button>
-				{% endif %}
-        	</form>
-			<form method="GET" action="{{ url_for('home') }}">
-				{% if page_number >= 1%}
+				</form>
+			{% endif %}
+			{% if page_number < 34 %}
+				<form method="GET" action="{{ url_for('home') }}">
 					<button name="page_number" value={{page_number + 1}} type="submit" style="align:right">Next Page</button>
-				{% endif %}
-        	</form>
+				</form>
+			{% endif %}
 		</nav>
+		{% endif %}
 	</body>
 </html>
